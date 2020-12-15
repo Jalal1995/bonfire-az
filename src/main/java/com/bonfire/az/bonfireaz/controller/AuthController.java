@@ -7,10 +7,7 @@ import com.bonfire.az.bonfireaz.entity.api.register.RegRs;
 import com.bonfire.az.bonfireaz.service.AuthService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -42,5 +39,17 @@ public class AuthController {
         return authService.login(rq.getEmail(), rq.getPassword())
                 .map(t -> new LoginRs(0, t))
                 .orElse(new LoginRs(-1, ""));
+    }
+
+    @GetMapping("test")
+    public String test() {
+
+        return "test";
+    }
+
+    @PostMapping("test")
+    public String test2() {
+
+        return "test";
     }
 }
