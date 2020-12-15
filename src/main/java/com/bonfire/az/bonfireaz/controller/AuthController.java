@@ -41,4 +41,9 @@ public class AuthController {
                 .map(t -> new LoginRs(0, t))
                 .orElse(new LoginRs(-1, ""));
     }
+
+    @GetMapping("test")
+    public String access() {
+        return "access test yes!";
+    }
 }
