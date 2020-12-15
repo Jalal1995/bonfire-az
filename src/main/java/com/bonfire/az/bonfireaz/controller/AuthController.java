@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "*")
 public class AuthController {
 
     private final AuthService authService;
@@ -39,17 +40,5 @@ public class AuthController {
         return authService.login(rq.getEmail(), rq.getPassword())
                 .map(t -> new LoginRs(0, t))
                 .orElse(new LoginRs(-1, ""));
-    }
-
-    @GetMapping("test")
-    public String test() {
-
-        return "test";
-    }
-
-    @PostMapping("test")
-    public String test2() {
-
-        return "test";
     }
 }
