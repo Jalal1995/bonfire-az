@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class AuthController {
 
     private final AuthService authService;
@@ -44,6 +44,6 @@ public class AuthController {
 
     @GetMapping("test")
     public String access() {
-        return "access test yes!";
+        return "access test yes localhost!";
     }
 }
