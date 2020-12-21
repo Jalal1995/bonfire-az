@@ -1,4 +1,4 @@
-package com.bonfire.az.bonfireaz.entity.api.register;
+package com.bonfire.az.bonfireaz.model.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,8 +8,9 @@ import lombok.Data;
 public class RegRs {
     private int code;
     private String message;
+    private String userId;
 
     public static RegRs USER_EXISTS(String email) {
-        return new RegRs(-1, String.format("user already exists with email %s", email));
+        return new RegRs(-1, String.format("user already exists with email %s", email), "");
     }
 }

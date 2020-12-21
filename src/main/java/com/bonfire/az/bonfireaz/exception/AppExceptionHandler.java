@@ -1,6 +1,6 @@
 package com.bonfire.az.bonfireaz.exception;
 
-import com.bonfire.az.bonfireaz.entity.response.ErrorMessage;
+import com.bonfire.az.bonfireaz.model.response.ErrorMessage;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

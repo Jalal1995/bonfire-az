@@ -19,7 +19,7 @@ public class JwtService {
     @Value("${jwt.secret}")
     private String jwtSecret;
 
-    public String generateToken(Integer user_id) {
+    public String generateToken(Long user_id) {
         final Date now = new Date();
         final Date expiry = new Date(now.getTime() + expiration);
         return Jwts.builder()

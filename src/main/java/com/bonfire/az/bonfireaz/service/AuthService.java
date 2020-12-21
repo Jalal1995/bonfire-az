@@ -1,7 +1,7 @@
 package com.bonfire.az.bonfireaz.service;
 
-import com.bonfire.az.bonfireaz.entity.db.XUser;
-import com.bonfire.az.bonfireaz.entity.sec.XUserDetails;
+import com.bonfire.az.bonfireaz.model.entity.XUser;
+import com.bonfire.az.bonfireaz.model.sec.XUserDetails;
 import com.bonfire.az.bonfireaz.jwt.Const;
 import com.bonfire.az.bonfireaz.jwt.JwtService;
 import com.bonfire.az.bonfireaz.repo.UserRepo;
@@ -23,9 +23,8 @@ public class AuthService {
     private final UserRepo repo;
     private final PasswordEncoder enc;
 
-    public Optional<String> register(String email, String password, String name) {
-        repo.save(new XUser(email, enc.encode(password), name, new String[] {"USER"}));
-        return login(email, password);
+    public String register(String email, String password, String name) {
+        return repo.save(new XUser(email, enc.encode(password), name, new String[]{"USER"})).getUserId();
     }
 
     public boolean isUserExists(String email) {

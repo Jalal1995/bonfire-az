@@ -1,4 +1,4 @@
-package com.bonfire.az.bonfireaz.entity.api.register;
+package com.bonfire.az.bonfireaz.model.request;
 
 import lombok.Data;
 

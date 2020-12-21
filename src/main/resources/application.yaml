@@ -7,7 +7,7 @@ server:
 
 spring:
   datasource:
-    url: ${JDBC_DATABASE_URL:jdbc:mysql://localhost:3306/bank}
+    url: ${JDBC_DATABASE_URL:jdbc:mysql://localhost:3306/bonfire}
     username: ${JDBC_DATABASE_USERNAME:root}
     password: ${JDBC_DATABASE_PASSWORD:123456}
 

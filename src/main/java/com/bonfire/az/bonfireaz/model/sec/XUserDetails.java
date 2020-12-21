@@ -1,9 +1,8 @@
-package com.bonfire.az.bonfireaz.entity.sec;
+package com.bonfire.az.bonfireaz.model.sec;
 
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -11,20 +10,19 @@ import java.util.stream.Collectors;
 @Getter
 public class XUserDetails implements UserDetails {
 
-    private final int id;
+    private final long id;
     private String userId;
     private final String email;
     private final String password;
     private final String[] roles;
 
 
-    public XUserDetails(int id, String userId, String email, String password, String[] roles) {
+    public XUserDetails(long id, String userId, String email, String password, String[] roles) {
         this.userId = userId;
         this.id = id;
         this.email = email;
         this.password = password;
         this.roles = roles;
-
     }
 
     @Override

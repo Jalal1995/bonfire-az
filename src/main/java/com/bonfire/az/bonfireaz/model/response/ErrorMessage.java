@@ -1,4 +1,4 @@
-package com.bonfire.az.bonfireaz.entity.response;
+package com.bonfire.az.bonfireaz.model.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

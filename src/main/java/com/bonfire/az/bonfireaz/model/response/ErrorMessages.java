@@ -1,4 +1,4 @@
-package com.bonfire.az.bonfireaz.entity.response;
+package com.bonfire.az.bonfireaz.model.response;
 
 public enum ErrorMessages {
     NO_RECORD_FOUND("Record with provided id is not found"),
