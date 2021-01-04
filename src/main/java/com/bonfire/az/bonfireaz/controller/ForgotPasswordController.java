@@ -61,4 +61,6 @@ public class ForgotPasswordController {
                 RESET_PASSWORD,
                 "password is changed");
     }
+
+    // it should work
 }
