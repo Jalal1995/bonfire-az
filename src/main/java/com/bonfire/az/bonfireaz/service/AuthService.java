@@ -27,10 +27,6 @@ public class AuthService {
         return repo.save(new XUser(email, enc.encode(password), name, new String[]{"USER"})).getUserId();
     }
 
-    public boolean isUserExists(String email) {
-        return repo.findByEmail(email).isPresent();
-    }
-
     public Optional<String> login(String email, String password) {
         Authentication auth = am.authenticate(new UsernamePasswordAuthenticationToken(email, password));
         return Optional.of(auth)
