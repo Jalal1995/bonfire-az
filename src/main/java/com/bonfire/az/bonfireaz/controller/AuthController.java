@@ -24,7 +24,7 @@ public class AuthController {
     @PostMapping("reg")
     public ResponseEntity<?> register(@RequestBody RegRq rq) {
 
-        if (authService.isUserExists(rq.getEmail())) {
+        if (userService.isUserExists(rq.getEmail())) {
             return ResponseEntity
                     .status(BAD_REQUEST)
                     .body(RegRs.USER_EXISTS(rq.getEmail()));
@@ -41,7 +41,7 @@ public class AuthController {
     public LoginRs authorize(@RequestBody LoginRq rq) {
 
         return authService.login(rq.getEmail(), rq.getPassword())
-                .map(t -> new LoginRs(0, t, userService.findXUserByUserEmail(rq.getEmail()).getUserId()))
+                .map(t -> new LoginRs(0, t, userService.findXUserByEmail(rq.getEmail()).getUserId()))
                 .orElse(new LoginRs(-1, "", ""));
     }
 

@@ -19,7 +19,7 @@ public class AppExceptionHandler {
 
         ErrorMessage errorMessage = new ErrorMessage(new Date(), ex.getMessage());
 
-        return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(value = {Exception.class})
@@ -27,7 +27,7 @@ public class AppExceptionHandler {
 
         ErrorMessage errorMessage = new ErrorMessage(new Date(), ex.getMessage());
 
-        return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.BAD_REQUEST);
 
     }
 

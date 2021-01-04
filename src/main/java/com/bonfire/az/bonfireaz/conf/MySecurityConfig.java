@@ -36,6 +36,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/login").permitAll()
                 .antMatchers("/api/reg").permitAll()
                 .antMatchers("/api/test").permitAll()
+                .antMatchers("/api/password/**").permitAll()
                 .antMatchers("/v2/api-docs",
                         "/configuration/ui",
                         "/swagger-resources/**",
