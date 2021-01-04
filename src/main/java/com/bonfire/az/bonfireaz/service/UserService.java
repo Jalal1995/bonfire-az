@@ -8,6 +8,7 @@ import com.bonfire.az.bonfireaz.repo.UserRepo;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,7 +17,7 @@ public class UserService {
 
     private final UserRepo userRepo;
     private final ModelMapper mapper;
-    private final BCryptPasswordEncoder encoder;
+    private final PasswordEncoder encoder;
 
     public XUser findXUserByUserId(String userId) {
         return userRepo.findByUserId(userId)
