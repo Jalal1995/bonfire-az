@@ -8,9 +8,9 @@ import lombok.Data;
 public class RegRs {
     private int code;
     private String message;
-    private String userId;
+    private UserRs user;
 
     public static RegRs USER_EXISTS(String email) {
-        return new RegRs(-1, String.format("user already exists with email %s", email), "");
+        return new RegRs(-1, String.format("user already exists with email %s", email), null);
     }
 }

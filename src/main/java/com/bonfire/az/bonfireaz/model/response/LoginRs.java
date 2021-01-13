@@ -8,5 +8,5 @@ import lombok.Data;
 public class LoginRs {
     private int code;
     private String token;
-    private String userId;
+    private UserRs user;
 }

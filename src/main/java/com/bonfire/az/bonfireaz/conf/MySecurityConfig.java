@@ -1,6 +1,9 @@
 package com.bonfire.az.bonfireaz.conf;
 
 import com.bonfire.az.bonfireaz.jwt.JwtFilter;
+import com.bonfire.az.bonfireaz.model.sec.oauth.CustomOAuth2UserService;
+import com.bonfire.az.bonfireaz.model.sec.oauth.OAuth2LoginSuccessHandler;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,13 +17,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Log4j2
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final JwtFilter jwtFilter;
-
-    public MySecurityConfig(JwtFilter jwtFilter) {
-        this.jwtFilter = jwtFilter;
-    }
+    private final CustomOAuth2UserService oAuth2UserService;
+    private final OAuth2LoginSuccessHandler oAuth2LoginSuccessHandler;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -43,7 +45,13 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                         "/configuration/security",
                         "/swagger-ui.html",
                         "/webjars/**").permitAll()
-                .anyRequest().authenticated();
+                .anyRequest().authenticated()
+                .and()
+                .oauth2Login()
+                .loginPage("/login")
+                .userInfoEndpoint().userService(oAuth2UserService)
+                .and()
+                .successHandler(oAuth2LoginSuccessHandler);
 
         http
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);

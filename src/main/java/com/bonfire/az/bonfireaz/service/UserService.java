@@ -11,6 +11,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -32,6 +34,15 @@ public class UserService {
     public UserDto findByUserId(String userId) {
         XUser xuser = findXUserByUserId(userId);
         return mapper.map(xuser, UserDto.class);
+    }
+
+
+    public Optional<XUser> findOpUserByEmail(String email) {
+        return userRepo.findByEmail(email);
+    }
+
+    public XUser register(String email, String password, String name) {
+        return userRepo.save(new XUser(email, encoder.encode(password), name, new String[]{"USER"}));
     }
 
     public boolean isUserExists(String email) {

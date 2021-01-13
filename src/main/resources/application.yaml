@@ -12,7 +12,6 @@ spring:
     password: ${JDBC_DATABASE_PASSWORD:123456}
 
   jpa:
-    generate-ddl: true
     hibernate.ddl-auto: update
     show-sql: false
 
@@ -31,3 +30,14 @@ spring:
           connectiontimeout: 5000
           timeout: 5000
           writetimeout: 5000
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 1009773386515-6co3nn4ri2sn247g6rc3838iv9e56466.apps.googleusercontent.com
+            client-secret: uv7XKKAT8FyCnKVVuJEh76uC
+            scope:
+              - email
+              - profile

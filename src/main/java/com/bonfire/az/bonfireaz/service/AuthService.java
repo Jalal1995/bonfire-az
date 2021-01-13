@@ -1,17 +1,15 @@
 package com.bonfire.az.bonfireaz.service;
 
-import com.bonfire.az.bonfireaz.model.entity.XUser;
-import com.bonfire.az.bonfireaz.model.sec.XUserDetails;
 import com.bonfire.az.bonfireaz.jwt.Const;
 import com.bonfire.az.bonfireaz.jwt.JwtService;
-import com.bonfire.az.bonfireaz.repo.UserRepo;
+import com.bonfire.az.bonfireaz.model.sec.XUserDetails;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import java.util.Optional;
 
 @Service
@@ -20,12 +18,6 @@ public class AuthService {
 
     private final AuthenticationManager am;
     private final JwtService jwt;
-    private final UserRepo repo;
-    private final PasswordEncoder enc;
-
-    public String register(String email, String password, String name) {
-        return repo.save(new XUser(email, enc.encode(password), name, new String[]{"USER"})).getUserId();
-    }
 
     public Optional<String> login(String email, String password) {
         Authentication auth = am.authenticate(new UsernamePasswordAuthenticationToken(email, password));
