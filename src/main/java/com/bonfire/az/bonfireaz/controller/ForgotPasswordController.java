@@ -20,7 +20,7 @@ import static com.bonfire.az.bonfireaz.model.response.OperationStatus.*;
 @Log4j2
 @RequiredArgsConstructor
 @RequestMapping("/api/password")
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class ForgotPasswordController {
 
     private final UserService userService;

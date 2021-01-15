@@ -1,13 +1,9 @@
 package com.bonfire.az.bonfireaz.service;
 
-import com.bonfire.az.bonfireaz.exception.InvalidLinkException;
-import com.bonfire.az.bonfireaz.exception.TokenNotFoundException;
 import com.bonfire.az.bonfireaz.model.entity.PasswordResetToken;
 import com.bonfire.az.bonfireaz.model.entity.XUser;
 import com.bonfire.az.bonfireaz.repo.PasswordTokenRepo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

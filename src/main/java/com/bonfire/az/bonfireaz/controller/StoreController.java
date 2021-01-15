@@ -23,7 +23,7 @@ import static com.bonfire.az.bonfireaz.model.response.OperationStatus.SUCCESS;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/stores")
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class StoreController {
 
     private final StoreRepo storeRepo;

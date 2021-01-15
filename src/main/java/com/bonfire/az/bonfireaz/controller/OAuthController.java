@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("oauth2")
-@CrossOrigin("*")
+//@CrossOrigin("*")
 public class OAuthController {
 
     @GetMapping("some")
